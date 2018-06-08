@@ -23,6 +23,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import au.com.acegi.hashbench.hashers.AdlerHasher;
 import au.com.acegi.hashbench.hashers.BouncyCastleHasher;
 import au.com.acegi.hashbench.hashers.CRC32Hasher;
+import au.com.acegi.hashbench.hashers.GHASHHasher;
 import au.com.acegi.hashbench.hashers.GuavaHasher;
 import au.com.acegi.hashbench.hashers.Hasher;
 import au.com.acegi.hashbench.hashers.JacksumHasher;
@@ -49,6 +50,7 @@ public class HashBench {
     AdlerHasher.register(HashBench.HASHERS);
     BouncyCastleHasher.register(HashBench.HASHERS);
     CRC32Hasher.register(HashBench.HASHERS);
+    GHASHHasher.register(HashBench.HASHERS);
     GuavaHasher.register(HashBench.HASHERS);
     JacksumHasher.register(HashBench.HASHERS);
     Jp32Hasher.register(HashBench.HASHERS);
@@ -193,7 +195,7 @@ public class HashBench {
   private void equals(final long expected, final long received) {
     if (expected != received) {
       throw new IllegalStateException(
-              "Received " + received + " (expected " + received + ")");
+              "Received " + received + " (expected " + expected + ")");
     }
   }
 
